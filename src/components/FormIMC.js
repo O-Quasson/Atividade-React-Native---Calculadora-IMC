@@ -10,6 +10,7 @@ const FormIMC = () => {
     const [peso, setpeso] = useState('');
     const [altura, setaltura] = useState('');
     const [imc, setimc] = useState(null);
+    const [altmetros,setaltmetros] = useState('');
 
     //c�lculo do imc
     const calcularIMC = () => {
@@ -17,6 +18,7 @@ const FormIMC = () => {
             const alturametros = parseFloat(altura)/100;
             const imccalculado = (parseFloat(peso)/(alturametros * alturametros)).toFixed(2);
             setimc(imccalculado);
+            setaltmetros(alturametros);
         }
     };
 
@@ -43,10 +45,9 @@ const FormIMC = () => {
             <Button title="Calcular IMC" onPress={calcularIMC}/>
             {imc && <Result imc={imc} />}
 
-            <Classification imc={imc} />
+            <Classification imc={imc}/>
 
-            <AlturaIdeal altura={parseFloat(altura)/100} />
-
+            <AlturaIdeal altmetros={altmetros}/>
         </View>
     );
 };
@@ -71,6 +72,6 @@ const styles = StyleSheet.create({
 });
 
 export {
-    FormIMC,
+    FormIMC
 };
 
