@@ -1,27 +1,27 @@
 import { useState } from "react";
 import { View, Button, StyleSheet } from 'react-native';
-import {IWClassif} from "./AlturaIdealClassif";
+import {IWClassifMin, IWClassifMax} from "./AlturaIdealClassif";
 
 const AlturaIdeal = ({alt}) => {
     const altura = alt;
-    const [pesmin,setpesmin] = useState(0);
-    const [pesmax, setpesmax] = useState(0);
+    const [pesmin,setpesmin] = useState('');
+    const [pesmax, setpesmax] = useState('');
+    const altmet = altura*altura;
 
     const calculapeso = () => {
-        
-        if (altura) {
-            const pesomin = 18.5*(altura*altura);
-            const pesomax = 24.9*(altura*altura); 
-            setpesmin(pesomin);
-            setpesmax(pesomax);
 
-        };
+        const pesomin = 18.5*altmet;
+        const pesomax = 24.9*altmet; 
+        setpesmin(pesomin);
+        setpesmax(pesomax);
+
     };
 
     return (
-        <View style={estilo.aaaa} >
+        <View style={estilo.aaaa}>
             <Button title="Peso ideal para sua altura" onPress={calculapeso}/>
-            {pesmin && pesmax && <IWClassif pesmin={pesmin} pesmax={pesmax} />}
+            {pesmin && <IWClassifMin pesmin={pesmin}/>}
+            {pesmax && <IWClassifMax pesmax={pesmax}/>}
         </View>
     );
     
