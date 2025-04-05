@@ -1,16 +1,14 @@
 //importa essas tags 
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-const IWClassifMin = ({ pesmin }) => {
+const IWClassif = ({ pesmin,pesmax }) => {
+    const peso1 = pesmin.toFixed(2);
+    const peso2 = pesmax.toFixed(2);
     return (
-        <Text style={styles.result}>{pesmin}</Text>
-    );
-};
-
-const IWClassifMax = ({ pesmax }) => {
-    return (
-        <Text style={styles.result}>{pesmax}</Text>
+        <View>
+            <Text style={styles.result}>O peso ideal para alguém da sua altura seria entre {peso1}kg e {peso2}kg</Text>
+        </View>
     );
 };
 
@@ -25,5 +23,5 @@ const styles = StyleSheet.create({
 });
 
 export {
-    IWClassifMin, IWClassifMax
+    IWClassif
 };  
