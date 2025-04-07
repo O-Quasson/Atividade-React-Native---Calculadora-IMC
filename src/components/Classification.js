@@ -1,9 +1,10 @@
+//importa essas tags
 import { View, Button, StyleSheet } from 'react-native';
 import { useState } from 'react';
 import ResultClassif from './ResultClassif';
 
+//arrow function/ tag que classifica o imc calculado anteriormente
 const Classification = ({imc}) => {
-    //não consigo obter o valor do imc porque essa porra fica dentro de um hook dentro de um método
     const iimc = imc;
     const [classificacao,setclass] = useState('');
     const calcclassif = () => {
@@ -23,8 +24,6 @@ const Classification = ({imc}) => {
         }
     }
 
-    // nsei = classificacao;
-
     return (
         <View style={estilo.aaaaaaaaaa}>
             <Button title="Classificação de IMC" onPress={calcclassif}/>
@@ -34,6 +33,7 @@ const Classification = ({imc}) => {
 
 };
 
+//css da tag
 const estilo = StyleSheet.create({
     aaaaaaaaaa: {
         backgroundColor: "#f0f0f0",
