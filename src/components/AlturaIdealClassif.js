@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+//arrow function/ tag que vai exibir o peso ideal na tela
 const IWClassif = ({ pesmin,pesmax }) => {
     const peso1 = pesmin.toFixed(2);
     const peso2 = pesmax.toFixed(2);
@@ -12,6 +13,7 @@ const IWClassif = ({ pesmin,pesmax }) => {
     );
 };
 
+//css da tag
 const styles = StyleSheet.create({
     result: {
         marginTop: 20,
@@ -22,6 +24,7 @@ const styles = StyleSheet.create({
     },
 });
 
+//exporta a tag para ser usada em outro arquivo
 export {
     IWClassif
 };  
