@@ -1,7 +1,9 @@
+//importa essas tags
 import { useState } from "react";
 import { View, Button, StyleSheet } from 'react-native';
 import { IWClassif } from "./AlturaIdealClassif";
 
+//arrow function/ tag que calcula o peso ideal com base na altura
 const AlturaIdeal = ({altmetros}) => {
     const altura = altmetros;
     const [pesmin,setpesmin] = useState('');
@@ -26,6 +28,7 @@ const AlturaIdeal = ({altmetros}) => {
     
 };
 
+//css da tag
 const estilo = StyleSheet.create({
     aaaa: {
         backgroundColor: "#f0f0f0",
