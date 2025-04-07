@@ -1,4 +1,4 @@
-//importa as tags que v�o ser usadas
+//importa as tags que vão ser usadas
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 import Result from './Result';
 import { useState } from 'react';
@@ -7,23 +7,27 @@ import AlturaIdeal from './IdealWeight';
 
 //arrow function que vai calcurar o imc da pessoa com base nos valores recebidos nos campos/inputs
 const FormIMC = () => {
-    const [peso, setpeso] = useState('');
-    const [altura, setaltura] = useState('');
+    const [peso, setpeso] = useState(null);
+    const [altura, setaltura] = useState(null);
     const [imc, setimc] = useState(null);
     const [altmetros,setaltmetros] = useState('');
 
-    //c�lculo do imc
+    //cálculo do imc
     const calcularIMC = () => {
         if(peso && altura){
-            const alturametros = parseFloat(altura)/100;
-            const imccalculado = (parseFloat(peso)/(alturametros * alturametros)).toFixed(2);
-            setimc(imccalculado);
-            setaltmetros(alturametros);
+            if ((isNaN(peso))||(isNaN(altura))){
+                alert("Um dos dados inseridos está errado. Use apenas números!");
+            }else{
+                const alturametros = parseFloat(altura)/100;
+                const imccalculado = (parseFloat(peso)/(alturametros * alturametros)).toFixed(2);
+                setimc(imccalculado);
+                setaltmetros(alturametros);
+            }
         }
     };
 
 
-    //retorna essas tags na tela - constru��o do "app"
+    //retorna essas tags na tela - construção do "app"
     return (
         <View style={styles.formContainer}>
             <TextInput
@@ -71,6 +75,7 @@ const styles = StyleSheet.create({
     },
 });
 
+//exporta a function para ser usada como tag em outro arquivo
 export {
     FormIMC
 };
